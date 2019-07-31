@@ -3,7 +3,7 @@
 
 //hint numbers can be negative
 
-const arrayOfInts = [-2, -4, 3, 5, 6, -100];
+const testArray = [-2, -4, 3, 5, 6, -100];
 
 function highestProductOfThreeInts(arrayOfInts) {
   let highest = Math.max(arrayOfInts[0], arrayOfInts[1]);
@@ -32,7 +32,4 @@ function highestProductOfThreeInts(arrayOfInts) {
   return highestProductOf3;
 }
 
-console.log(
-  'highestProductOfThreeInts',
-  highestProductOfThreeInts(arrayOfInts)
-);
+console.log('highestProductOfThreeInts', highestProductOfThreeInts(testArray));
