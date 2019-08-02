@@ -26,6 +26,27 @@ function bruteProductOfOther(arr) {
 
 console.log('bruteforce', bruteProductOfOther(testArr));
 
+//-------
+
+function brute2ProductOfOther(arr) {
+  let result = [];
+
+  for (let i = 0; i < arr.length; i++) {
+    let product = 1;
+    for (let j = 0; j < arr.length; j++) {
+      if (i !== j) {
+        product *= arr[j];
+      }
+    }
+    result.push(product);
+  }
+  return result;
+}
+
+console.log('bruteforce2', brute2ProductOfOther(testArr));
+
+//--------
+
 function greedyProductOfOther(arr) {
   let productSoFar = 1;
   let productsOfAllIntsBeforeIndex = [];
