@@ -61,7 +61,6 @@ invalidTree.right.insertRight(90);
 invalidTree.left.left.insertLeft(22);
 
 function binarySearchTreeChecker(treeRoot, lowerB, upperB) {
-  debugger;
   if (lowerB === undefined) {
     lowerB = -Infinity;
   }
@@ -83,5 +82,41 @@ function binarySearchTreeChecker(treeRoot, lowerB, upperB) {
   );
 }
 
-console.log('valid tree', binarySearchTreeChecker(validTree));
-console.log('invalid tree', binarySearchTreeChecker(invalidTree));
+function iterativeBinarySearchTreeChecker(treeRoot) {
+  let stack = [];
+
+  stack.push({
+    node: treeRoot,
+    lowerB: -Infinity,
+    upperB: Infinity
+  });
+
+  while (stack.length) {
+    let curObj = stack.pop();
+    let { node, lowerB, upperB } = curObj;
+    if (node.value <= lowerB || node.value >= upperB) {
+      return false;
+    }
+    if (node.left) {
+      stack.push({ node: node.left, lowerB, upperB: node.value });
+    }
+
+    if (node.right) {
+      stack.push({ node: node.right, lowerB: node.value, upperB });
+    }
+  }
+
+  return true;
+}
+
+console.log('RECURSIVE: valid tree', binarySearchTreeChecker(validTree));
+console.log('RECURSIVE: invalid tree', binarySearchTreeChecker(invalidTree));
+
+console.log(
+  'ITERATIVE: valid tree',
+  iterativeBinarySearchTreeChecker(validTree)
+);
+console.log(
+  'ITERATIVE: invalid tree',
+  iterativeBinarySearchTreeChecker(invalidTree)
+);
