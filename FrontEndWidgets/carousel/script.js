@@ -11,8 +11,6 @@ let leftB = document.querySelector('.left-button');
 let rightB = document.querySelector('.right-button');
 
 mainImg.src = photoSRCs[1];
-leftB.onclick = shiftLeft;
-rightB.onclick = shiftRight;
 
 function shiftLeft() {
   photoSRCs.unshift(photoSRCs.pop());
