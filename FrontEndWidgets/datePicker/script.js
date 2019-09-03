@@ -13,24 +13,38 @@ let months = [
   'Dec'
 ];
 
+//create event listeners to show and hide the calendar
+let datePicker = document.querySelector('#selector');
+let input = document.querySelector('input');
+input.addEventListener('click', function addListener() {
+  datePicker.classList.remove('date-picker-hidden');
+});
+
+document.addEventListener('click', event => {
+  let isClickedInside =
+    datePicker.contains(event.target) || input.contains(event.target);
+  if (!isClickedInside) {
+    datePicker.classList.add('date-picker-hidden');
+  }
+});
+
+//set the current month
 let curMonth = new Date().getMonth();
 let curYear = new Date().getFullYear();
 populateMonthAndYear(curMonth, curYear);
 
-let input = document.querySelector('input');
-
-input.addEventListener('beforeinput', showDatePicker);
-
-function showDatePicker() {}
-
+//Utility Functions
 function changeDate(monthChange, yearChange) {
   let dispMonth = document.querySelector('.month-section p').innerHTML;
   let monthIndex = months.indexOf(dispMonth);
-  let dispYear = document.querySelector('.year-section p').innerHTML;
+  let numYear = parseInt(
+    document.querySelector('.year-section p').innerHTML,
+    10
+  );
 
   populateMonthAndYear(
-    (120 + monthIndex + monthChange) % 12,
-    dispYear + yearChange
+    (12 + monthIndex + monthChange) % 12,
+    numYear + yearChange
   );
 }
 
@@ -40,6 +54,7 @@ function populateMonthAndYear(month, year) {
   let monthEl = document.querySelector('.month-section p');
   yearEl.innerHTML = year;
   monthEl.innerHTML = months[month];
+  input.value = new Date(year, month).toISOString().substring(0, 10);
 
   //update table section
   let weekdayThatMonthBegins = new Date(year, month).getDay();
@@ -92,4 +107,9 @@ function resetTable() {
   sat.innerHTML = 'Sat';
   firstRow.append(sun, mon, tue, wed, thu, fri, sat);
   table.appendChild(firstRow);
+}
+
+function selectDate(year, month, day) {
+  let date = new Date(year, month, day).toISOString().substring(0, 10);
+  input.value = date;
 }

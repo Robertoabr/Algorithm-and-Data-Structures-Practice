@@ -1,5 +1,5 @@
-.date-picker {
-  width: 50vw;
+.date-picker-hidden {
+  display: none;
 }
 
 .year-section {

@@ -9,10 +9,10 @@
     <title>Date Picker</title>
   </head>
   <body>
-    <h2>Create a date picker dropdown with just HTML, CSS and JS</h2>
-    <section class="date picker">
-      <input placeholder="Enter the Date" />
-      <div class="date-picker">
+    <h2>Create a basic date picker dropdown from scratch</h2>
+    <input placeholder="Enter the Date" type="date" />
+    <section>
+      <div id="selector" class="date-picker-hidden">
         <div class="year-section">
           <button onclick="changeDate(0,-1)" class="prev-year"><</button>
           <p>2019</p>
@@ -24,17 +24,7 @@
           <button onclick="changeDate(1,'')" class="next-month">></button>
         </div>
         <div class="day-section">
-          <table class="day-table">
-            <tr>
-              <th>Sun</th>
-              <th>Mon</th>
-              <th>Tue</th>
-              <th>Wed</th>
-              <th>Thu</th>
-              <th>Fri</th>
-              <th>Sat</th>
-            </tr>
-          </table>
+          <table class="day-table"></table>
         </div>
       </div>
     </section>
