@@ -1,0 +1,11 @@
+.date-picker {
+  width: 50vw;
+}
+
+.year-section {
+  display: flex;
+}
+
+.month-section {
+  display: flex;
+}

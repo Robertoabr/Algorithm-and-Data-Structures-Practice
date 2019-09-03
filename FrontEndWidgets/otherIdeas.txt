@@ -1,5 +1,6 @@
 You may be asked to implement UIs or build a widget. Some examples include:
 
-(1) build the layout and interactions of common web applications;
+(1) build the layout and interactions of common web applications;  such as the Netflix browser site.
 
-(2) implement widgets like a date-selector, carousel, or e-commerce cart; or (3) write a function similar to debounce.
+(2) implement widgets like a date-selector, carousel, or e-commerce cart; or (3) write a function similar to debounce. Clone an object deeply
+

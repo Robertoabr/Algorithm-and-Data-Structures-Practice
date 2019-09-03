@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link href="main.css" rel="stylesheet" type="text/css" />
+    <script defer src="script.js"></script>
+    <title>Date Picker</title>
+  </head>
+  <body>
+    <h2>Create a date picker dropdown with just HTML, CSS and JS</h2>
+    <section class="date picker">
+      <input placeholder="Enter the Date" />
+      <div class="date-picker">
+        <div class="year-section">
+          <button onclick="changeDate(0,-1)" class="prev-year"><</button>
+          <p>2019</p>
+          <button onclick="changeDate(0,1)" class="next-year">></button>
+        </div>
+        <div class="month-section">
+          <button onclick="changeDate(-1,'')" class="prev-month"><</button>
+          <p>January</p>
+          <button onclick="changeDate(1,'')" class="next-month">></button>
+        </div>
+        <div class="day-section">
+          <table class="day-table">
+            <tr>
+              <th>Sun</th>
+              <th>Mon</th>
+              <th>Tue</th>
+              <th>Wed</th>
+              <th>Thu</th>
+              <th>Fri</th>
+              <th>Sat</th>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
