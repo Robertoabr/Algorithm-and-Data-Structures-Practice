@@ -76,6 +76,10 @@ function populateMonthAndYear(month, year) {
         let cell = document.createElement('td');
         let button = document.createElement('button');
         button.innerHTML = currentDay;
+        button.addEventListener('click', () => {
+          selectDate(year, month, button.innerHTML);
+          datePicker.classList.add('date-picker-hidden');
+        });
         cell.appendChild(button);
         row.appendChild(cell);
         currentDay++;
@@ -113,3 +117,5 @@ function selectDate(year, month, day) {
   let date = new Date(year, month, day).toISOString().substring(0, 10);
   input.value = date;
 }
+
+//need to add selectDate function to the buttons
