@@ -1,8 +1,6 @@
 /*
 
-We're building a web game where everybody wins and we are all friends forever.
-
-It's simple—you click on one of three boxes to see what nice thing you've won. You always win something nice. Because we love you.
+We're building a web game where everybody wins and we are all friends forever.It's simple—you click on one of three boxes.
 
 Here's what we have so far. Something's going wrong though. Can you tell what it is?
 
@@ -26,8 +24,8 @@ Here's what we have so far. Something's going wrong though. Can you tell what it
 HTML
 The syntax is just fine—the problem is some unexpected behavior.
 
-Gotchas
-Coding style choices aside, what we found is a problem in behavior.
+
+
 
 Solution
 The user's prize is always undefined!
