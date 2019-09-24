@@ -7,7 +7,13 @@ Example Tree:
    3   6             22
      5   7       20
 
-Here's a sample binary tree node class:
+sample binary tree node class included
+
+Hint:
+-"simplify, solve, and adapt" strategy.
+-Breaking things down into cases
+
+Whenever a problem is starting to feel complicated, try breaking it down into cases.It can be really helpful to actually draw out sample inputs for those cases. This'll keep your thinking organized and also help get your interviewer on the same page.
 */
 
 class BinaryTreeNode {
