@@ -19,11 +19,8 @@ Explanation: F(3) = F(2) + F(1) = 1 + 1 = 2.
 
 //slowest solution big O(2^N) Exponential Time
 let fib = function(N) {
-  if (N === 1) {
-    return 1;
-  }
-  if (N === 0) {
-    return 0;
+  if (N === 1 || N === 0) {
+    return N;
   }
 
   N = fib(N - 1) + fib(N - 2);
@@ -31,7 +28,7 @@ let fib = function(N) {
   return N;
 };
 
-console.log('fib of 3 =', fib(3));
-console.log('fib of 4 =', fib(4));
-console.log('fib of 5 =', fib(5));
-console.log('fib of 6 =', fib(6));
+console.log('fib of 3 expect 2=', fib(3));
+console.log('fib of 4 expect 3=', fib(4));
+console.log('fib of 5 expect 5=', fib(5));
+console.log('fib of 6 expect 8=', fib(6));

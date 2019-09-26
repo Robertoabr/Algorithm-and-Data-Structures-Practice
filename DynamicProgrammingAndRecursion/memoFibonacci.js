@@ -26,8 +26,8 @@ function nthFib(n) {
   }
 }
 
-console.log('expect 8:', nthFib(6));
-console.log('expect 5:', nthFib(5));
+console.log('Fib(6) without class - expect 8:', nthFib(6));
+console.log('Fib(5) without class -expect 5:', nthFib(5));
 
 //here is the class approach, linking a single memo to all the function calls via a class:
 class Fibber {
@@ -62,5 +62,4 @@ class Fibber {
   }
 }
 
-console.log('C expect 8:', new Fibber().fib(6));
-console.log('C expect 5:', new Fibber().fib(5));
+console.log('Class approach logs for Fib(6)-  expect 8:', new Fibber().fib(6));
