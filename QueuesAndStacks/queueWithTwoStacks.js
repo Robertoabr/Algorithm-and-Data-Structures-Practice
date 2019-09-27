@@ -27,11 +27,11 @@ class Stack {
 }
 
 //
-//
 //Answer Below:
 
 class Queue {
   constructor() {
+    // I could also have just used a standard array for the stack constuctor here
     this.inStack = new Stack();
     this.outStack = new Stack();
   }
