@@ -59,3 +59,14 @@ console.log('{} expect true:', isValid('{}'));
 console.log('{[]} expect true:', isValid('{[]}'));
 console.log('[{]} expect false:', isValid('[{]}'));
 console.log('[{} expect false:', isValid('[{}'));
+
+/*
+O(n) time (one iteration through the string), and O(n)O(n) space (in the worst case, all of our characters are openers, so we push them all onto the stack).
+
+The trick was to use a stack.
+It might have been difficult to have that insight, because you might not use stacks that much.
+
+Two common uses for stacks are:
+-parsing (like in this problem)
+-tree or graph depth first traversal (eg like how you use the call stack/recursion for traversal)
+*/
