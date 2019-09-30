@@ -47,7 +47,7 @@ function reverseList(listHead) {
   return prevNode;
 }
 
-console.log(reverseList(a), ' Expect d->c->b->a , reverseList(a)');
+console.log(reverseList(a), ' Expect 4->3->2->1 , reverseList(a)');
 
 /*
 It's one of those problems where, even once you know the procedure, it's hard to write a bug-free solution. Drawing it out helps a lot. Write out a sample linked list and walk through your code by hand, step by step, running each operation on your sample input to see if the final output is what you expect.

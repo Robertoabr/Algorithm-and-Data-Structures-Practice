@@ -37,6 +37,8 @@ function deleteNode(nodeToDelete) {
   }
 }
 
+console.log(a.next, 'should be C');
+
 /*
 We take value and next from the input node's next node and copy them into the input node. Now the input node's previous node effectively skips the input node's old value!
 
