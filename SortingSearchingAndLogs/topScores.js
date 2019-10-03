@@ -10,9 +10,35 @@ and returns a sorted array of scores in less than O(nlgn) time.
 const unsortedScores = [37, 89, 41, 65, 91, 53];
 const HIGHEST_POSSIBLE_SCORE = 100;
 
+
 function sortScores(scoresArr, highestScore) {
+  let dictArray = [] //size of highest score
+
+  //read into dict arr
+  for(let i = 0; i < scoresArr.length ; i++){
+    let
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function gsortScores(scoresArr, highestScore) {
   let outArr = [];
   let countingArr = [];
+
+  //THIS IS SLIGHTLY INEFFICENT BELOW HERE - REAL solution uses an array prefilled with 0s so it doesn't have to check if something is inside, it can just add +1 for every repeat letter
 
   //pass through once adding elements to my counting array
   // indices represent score counts here (similar but diff than memoization)
@@ -34,6 +60,8 @@ function sortScores(scoresArr, highestScore) {
   }
   return outArr;
 }
+
+
 
 // O(n) time O(n) space - really its O(n+k) time and space where k is the highest possible score or range of possible scores
 console.log(sortScores(unsortedScores, HIGHEST_POSSIBLE_SCORE));
