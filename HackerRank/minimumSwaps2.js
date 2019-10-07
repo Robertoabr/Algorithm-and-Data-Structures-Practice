@@ -28,9 +28,10 @@ function inPlaceSortMinOperationCount(arr) {
   let len = arr.length;
   let min = Math.min(...arr);
   let count = 0;
-  // determine which indexes a number should be at
-  //check all numbers to see if there is a useful super swap (both go to home)
-  // if not swap the first item to its place
+  // for each position in the array
+  //  if a position is occupied by the wrong number
+  //  find the number that fits into the position
+  //  perform a swap
   for (let i = 0; i < len - 1; i++) {
     let curEl = arr[i];
     let correctIndex = arr.indexOf(min + i);
@@ -45,17 +46,70 @@ function inPlaceSortMinOperationCount(arr) {
   return count;
 }
 
-console.log(inPlaceSortMinOperationCount(input0), ':expect 3 - [4,3,1,2]');
+// console.log(inPlaceSortMinOperationCount(input0), ':expect 3 - [4,3,1,2]');
+// console.log(
+//   inPlaceSortMinOperationCount(input1),
+//   ':expect 3 - [2, 3, 4, 1, 5]'
+// );
+// console.log(
+//   inPlaceSortMinOperationCount(input2),
+//   ':expect 3 - [1, 3, 5, 2, 4, 6, 7]'
+// );
+
+// console.log(
+//   inPlaceSortMinOperationCount(input3),
+//   ':expect 3 - [3, 4, 1, 2, 6, 5]'
+// );
+
+//OPTIMIZED SOLUTION
+function inPlaceSortMinOperationCountOpt(arr) {
+  let len = arr.length;
+  let min = Math.min(...arr);
+  let count = 0;
+  //for each position in the array
+  //  if a number is in the wrong location
+  //      find the position the number should go
+  //      perform a swap
+  //      keep doing this at the original position untill you happen  to swap for the right number for that position
+
+  for (let i = 0; i < len - 1; i++) {
+    if (i + min === arr[i]) {
+      continue;
+    } else {
+      while (i + min !== arr[i]) {
+        let curEl = arr[i];
+        let swappingPartner = arr[curEl - min];
+        arr[i] = swappingPartner;
+        arr[curEl - min] = curEl;
+        count++;
+      }
+    }
+  }
+  return count;
+}
+
 console.log(
-  inPlaceSortMinOperationCount(input1),
-  ':expect 3 - [2, 3, 4, 1, 5]'
+  inPlaceSortMinOperationCountOpt(input0),
+  ':opt expect 3 - [4,3,1,2]'
 );
 console.log(
-  inPlaceSortMinOperationCount(input2),
-  ':expect 3 - [1, 3, 5, 2, 4, 6, 7]'
+  inPlaceSortMinOperationCountOpt(input1),
+  ':opt expect 3 - [2, 3, 4, 1, 5]'
+);
+console.log(
+  inPlaceSortMinOperationCountOpt(input2),
+  ':opt expect 3 - [1, 3, 5, 2, 4, 6, 7]'
 );
 
 console.log(
-  inPlaceSortMinOperationCount(input3),
-  ':expect 3 - [3, 4, 1, 2, 6, 5]'
+  inPlaceSortMinOperationCountOpt(input3),
+  ':opt expect 3 - [3, 4, 1, 2, 6, 5]'
 );
+
+/*
+The optimized is faster because:
+
+finding a number for a given location requires a linear scan (In the un-optimized example above I used indexof() for this)
+
+but finding the location for a given number is as simple as it gets: the number five should go into the fifth position.
+*/
