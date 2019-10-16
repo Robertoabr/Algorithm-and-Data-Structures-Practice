@@ -40,8 +40,9 @@ const network = {
   Omar: ['Ren', 'Min']
 };
 
-// I did the below with an array , but it would have been more efficient with a queue class where taking from the start of the line is constant time , with a javascript array implementation below , taking from the start of an array (shifting or dequeueing is O(n) as we need to re-index the whole array when we shidt everything over one)
+// I did the below nodesToVisit queue with an array , but it would have been more efficient with a queue class where taking from the start of the line is constant time. With a javascript array implementation below , taking from the start of an array shifting or dequeueing is O(n) as we need to re-index the whole array when we shift everything over one. If we created a  queue class with an object and two pointers (example on bottom) we could enqueue and deque in O(1) constant time
 
+//function for breath first search using a queue
 function bfsGetPath(graph, startNode, endNode) {
   const nodesToVisit = [];
   nodesToVisit.push(startNode);
@@ -123,4 +124,46 @@ The tricky part was backtracking to assemble the path we used to reach our endNo
 
 1. Figuring out what additional information we need to store in order to rebuild our path at the end (howWeReachedNodes, in this case).
 2. Figuring out how to reconstruct the path from that information.
+
+
+
+
+
+
+
+
+queue class example with O(1) time:
 */
+
+var Queue = function() {
+  this.storage = {};
+  this.count = 0;
+  this.lowestCount = 0;
+};
+
+// Adds a value to the end of the chain
+Queue.prototype.enqueue = function(value) {
+  // Check to see if value is defined
+  if (value) {
+    this.storage[this.count] = value;
+    this.count++;
+  }
+};
+
+// Removes a value from the beginning of the chain
+Queue.prototype.dequeue = function() {
+  // Check to see if queue is empty
+  if (this.count - this.lowestCount === 0) {
+    return undefined;
+  }
+
+  var result = this.storage[this.lowestCount];
+  delete this.storage[this.lowestCount];
+  this.lowestCount++;
+  return result;
+};
+
+// Returns the length of the queue
+Queue.prototype.size = function() {
+  return this.count - this.lowestCount;
+};
