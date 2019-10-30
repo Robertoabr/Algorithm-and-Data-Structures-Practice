@@ -46,9 +46,42 @@ function palindrome(string) {
   return true;
 }
 
-console.log(palindrome('deed'), 'expect true, deed');
-console.log(palindrome('deep'), 'expect false, deep');
-console.log(palindrome('civic'), 'expect true, civic');
-console.log(palindrome('ivicc'), 'expect true, ivicc');
-console.log(palindrome('civil'), 'expect false, civil');
-console.log(palindrome('livci'), 'expect false, livci');
+console.log(palindrome('deed'), '2 expect true, deed');
+console.log(palindrome('deep'), '2 expect false, deep');
+console.log(palindrome('civic'), '2 expect true, civic');
+console.log(palindrome('ivicc'), '2 expect true, ivicc');
+console.log(palindrome('civil'), '2 expect false, civil');
+console.log(palindrome('livci'), '2 expect false, livci');
+
+/*
+The big O speed is O(n), space is also O(n) worst case
+
+Second version below - slightly more concise ending
+*/
+
+function palindrome2(str) {
+  //go through string store the letters in an obj as the key
+  // return true if there are two of all letters except one
+
+  let dict = {};
+  for (let i = 0; i < str.length; i++) {
+    let curChar = str[i];
+    if (dict[curChar] === undefined) {
+      dict[curChar] = false;
+    } else {
+      dict[curChar] = !dict[curChar];
+    }
+  }
+
+  if (Object.values(dict).filter(bool => bool === false).length > 1) {
+    return false;
+  }
+  return true;
+}
+
+console.log(palindrome2('deed'), 'expect true, deed');
+console.log(palindrome2('deep'), 'expect false, deep');
+console.log(palindrome2('civic'), 'expect true, civic');
+console.log(palindrome2('ivicc'), 'expect true, ivicc');
+console.log(palindrome2('civil'), 'expect false, civil');
+console.log(palindrome2('livci'), 'expect false, livci');
