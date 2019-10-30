@@ -39,7 +39,7 @@ console.log(
 /*
 
 
-Alternative way to do it tracking highest, second highest , lowest and second lowest and comparing the curNum to all combinations of those vs using the highestProductOf2 and lowestProductOf2  that I did above. This is pretty much just as fast O(n) time and constant space
+Alternative way to do it tracking highest, second highest , lowest and second lowest and comparing the curNum to all combinations of those (vs comparing to highestProductOf2 and lowestProductOf2 that I did above). This is pretty much just as fast O(n) time and same constant space
 */
 
 const testArray = [-2, -4, 3, 5, 6, -100];
