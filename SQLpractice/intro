@@ -5,3 +5,7 @@ With 4 tables: Customer, dogwalker, appt-details and CustomerXappt
 Table structure is at
 https://api.genmymodel.com/projects/_DyCPcOOiEemtQJ5uHCArog/diagrams/_DyCPcuOiEemtQJ5uHCArog/svg
 
+to connect to database enter: psql [option] [dbname[username]]
+to see the relations for that database enter: \dt
+
+select * from "OwnershipDocument". You need quotes because of the uppercase characters.
